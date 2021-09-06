@@ -40,43 +40,41 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        context=this;
+        context = this;
         btLocation = findViewById(R.id.btLocation);
         tvLati = findViewById(R.id.tvLati);
         tvLati1 = findViewById(R.id.tvLati1);
         tvLong = findViewById(R.id.tvLong);
-        tvAddresses=findViewById(R.id.tvAddresses);
+        tvAddresses = findViewById(R.id.tvAddresses);
         tvLong1 = findViewById(R.id.tvLong1);
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         btLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+                if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                     getLocation();
-                }else {
-                    ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},44);
+                } else {
+                    ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
                 }
-
             }
-
             @SuppressLint("MissingPermission")
             private void getLocation() {
                 fusedLocationProviderClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
                     @Override
                     public void onComplete(@NonNull Task<Location> task) {
-                        Location location=task.getResult();
-                        if (location != null){
-                            Geocoder geocoder=new Geocoder(MainActivity.this, Locale.getDefault());
+                        Location location = task.getResult();
+                        if (location != null) {
+                            Geocoder geocoder = new Geocoder(MainActivity.this, Locale.getDefault());
                             try {
-                                List<Address> addresses=geocoder.getFromLocation(location.getLatitude(),location.getLongitude(),1);
-                                tvLati.setText("latitude="+location.getLatitude());
-                                tvLong.setText("Longitude="+location.getLongitude());
-                                tvAddresses.setText("Address="+addresses.get(0).getAddressLine(0));
+                                List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+                                tvLati.setText("latitude=" + location.getLatitude());
+                                tvLong.setText("Longitude=" + location.getLongitude());
+                                tvAddresses.setText("Address=" + addresses.get(0).getAddressLine(0));
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
-                        }else{
-                            Toast t=Toast.makeText(context,"location not get",Toast.LENGTH_SHORT);
+                        } else {
+                            Toast t = Toast.makeText(context, "location not get", Toast.LENGTH_SHORT);
                             t.show();
 
                         }
