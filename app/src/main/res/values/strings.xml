@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Location</string>
     <string name="get_location">Get Location</string>
+    <string name="student_portal">STUDENT PORTAL</string>
 </resources>

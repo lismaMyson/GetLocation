@@ -3,6 +3,7 @@ package com.example.location;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     TextView tvLong;
     TextView tvLong1;
     TextView tvAddresses;
+    Button btNext;
     Context context;
     FusedLocationProviderClient fusedLocationProviderClient;
 
@@ -47,6 +49,14 @@ public class MainActivity extends AppCompatActivity {
         tvLong = findViewById(R.id.tvLong);
         tvAddresses = findViewById(R.id.tvAddresses);
         tvLong1 = findViewById(R.id.tvLong1);
+        btNext=findViewById(R.id.btNext);
+        btNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(context,DesignActivity.class);
+                startActivity(i);
+            }
+        });
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         btLocation.setOnClickListener(new View.OnClickListener() {
             @Override

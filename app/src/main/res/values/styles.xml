@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="bt_basic_style" parent="Widget.AppCompat.Button">
+        <item name="colorPrimaryDark">#11F35D</item>
+    </style>
+</resources>
