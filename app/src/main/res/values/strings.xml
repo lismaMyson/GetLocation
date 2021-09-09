@@ -2,4 +2,13 @@
     <string name="app_name">Location</string>
     <string name="get_location">Get Location</string>
     <string name="student_portal">STUDENT PORTAL</string>
+    <string name="profile">PROFILE</string>
+    <string name="events">EVENTS</string>
+    <string name="staffs">STAFFS</string>
+    <string name="attendance">ATTENDANCE</string>
+    <string name="chat_box">CHAT BOX</string>
+    <string name="grading">GRADING</string>
+    <string name="album">ALBUM</string>
+    <string name="education">EDUCATION</string>
+    <string name="settings">SETTINGS</string>
 </resources>
